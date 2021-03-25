@@ -13,9 +13,13 @@
       /*!***********************!*\
   !*** ./src/worker.ts ***!
   \***********************/
-      /***/ (module, __unused_webpack_exports, __webpack_require__) => {
+      /***/ (
+        __unused_webpack_module,
+        __unused_webpack_exports,
+        __webpack_require__,
+      ) => {
         eval(
-          'module.exports = __webpack_require__.p + "6881376a24e0bd484cf2.ts";\n\n//# sourceURL=webpack://web-optimizer/./src/worker.ts?',
+          '// export type ProcessorWorkerApi = typeof workerApi;\n// \'as any\' to work around the way our client code has insight into worker code\nasync function handleImage(imageData) {\n  const {\n    timed\n  } = await __webpack_require__.e(/*! import() */ "src_timed_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./timed */ "./src/timed.ts"));\n  const webpEncode = (await __webpack_require__.e(/*! import() */ "src_webpEncode_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./webpEncode */ "./src/webpEncode.ts"))).default;\n  const resize = (await __webpack_require__.e(/*! import() */ "src_resize_ts").then(__webpack_require__.bind(__webpack_require__, /*! ./resize */ "./src/resize.ts"))).default;\n  const resizedImageData = await resize(imageData, {\n    width: 1600,\n    height: 1600 / imageData.width * imageData.height,\n    method: \'lanczos3\',\n    fitMethod: \'stretch\',\n    premultiply: true,\n    linearRGB: true\n  });\n  const webpImageData = await webpEncode(resizedImageData, {\n    quality: 70,\n    target_size: 0,\n    target_PSNR: 0,\n    method: 4,\n    sns_strength: 50,\n    filter_strength: 60,\n    filter_sharpness: 0,\n    filter_type: 1,\n    partitions: 0,\n    segments: 4,\n    pass: 1,\n    show_compressed: 0,\n    preprocessing: 0,\n    autofilter: 0,\n    partition_limit: 0,\n    alpha_compression: 1,\n    alpha_filtering: 1,\n    alpha_quality: 100,\n    lossless: 0,\n    exact: 0,\n    image_hint: 0,\n    emulate_jpeg_size: 0,\n    thread_level: 0,\n    low_memory: 0,\n    near_lossless: 100,\n    use_delta_palette: 0,\n    use_sharp_yuv: 0\n  });\n  return webpImageData; // const workerApi = {\n  //   webpEncode(\n  //     ...args: Parameters<typeof webpEncode>\n  //   ): ReturnType<typeof webpEncode> {\n  //     return timed(\'webpEncode\', () => webpEncode(...args));\n  //   },\n  //   resize(\n  //     ...args: Parameters<typeof resize>\n  //   ): ReturnType<typeof resize> {\n  //     return timed(\'resize\', () => resize(...args));\n  //   },\n  // };\n}\n\nself.addEventListener(\'message\', async e => {\n  //@ts-ignore\n  self.postMessage(await handleImage(e.data));\n});\n\n//# sourceURL=webpack://web-optimizer/./src/worker.ts?',
         );
 
         /***/

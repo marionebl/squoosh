@@ -1,6 +1,5 @@
 //@ts-ignore
 const _worker = new Worker(new URL('./worker.ts', import.meta.url));
-console.log(_worker);
 
 async function loadImage(src) {
   // Load image
@@ -33,5 +32,3 @@ _worker.addEventListener('message', (e) => {
   img.src = blobURL;
   document.body.appendChild(img);
 });
-
-console.log(new URL('./worker.ts', import.meta.url));
